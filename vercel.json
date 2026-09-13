@@ -3,6 +3,11 @@
   "outputDirectory": "public",
   "framework": null,
   "installCommand": "composer install --no-dev --optimize-autoloader",
+  "functions": {
+    "public/index.php": {
+      "runtime": "now-php@1.0.0"
+    }
+  },
   "routes": [
     {
       "src": "/(.*)",
