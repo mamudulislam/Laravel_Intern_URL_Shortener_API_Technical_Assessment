@@ -5,7 +5,7 @@
   "installCommand": "composer install --no-dev --optimize-autoloader",
   "functions": {
     "public/index.php": {
-      "runtime": "vercel-php@latest"
+      "runtime": "vercel-php@0.0.1"
     }
   },
   "routes": [
