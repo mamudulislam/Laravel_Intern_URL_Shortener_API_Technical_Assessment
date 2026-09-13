@@ -32,4 +32,4 @@ RUN mkdir -p storage/framework/{cache,sessions,testing,views} \
 
 EXPOSE 8000
 
-CMD ["sh", "-c", "mkdir -p database && touch database/database.sqlite && php artisan serve --host=0.0.0.0 --port=8000"]
+CMD ["sh", "-c", "mkdir -p database && touch database/database.sqlite && php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=8000"]
