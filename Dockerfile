@@ -16,13 +16,12 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
 
-COPY composer.json ./
-RUN composer update --no-dev --no-scripts --no-autoloader --prefer-dist
+COPY composer.json composer.lock ./
+RUN composer install --no-dev --no-scripts --no-autoloader --prefer-dist --no-interaction
 
 COPY . .
 
-RUN composer dump-autoload --optimize \
-    && composer run-script post-autoload-dump
+RUN composer dump-autoload --optimize --no-interaction
 
 RUN mkdir -p storage/framework/{cache,sessions,testing,views} \
     && mkdir -p storage/logs \
